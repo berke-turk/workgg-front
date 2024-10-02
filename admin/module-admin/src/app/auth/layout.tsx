@@ -1,3 +1,4 @@
+import Navbar from '@/components/navbar/component'
 
 
 export default function Layout({
