@@ -5,7 +5,7 @@ import sidebarReducer from './features/sidebarSlice'
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    abece: counterReducer,
+    abeced: counterReducer,
     sidebar: sidebarReducer,
   },
 })

@@ -15,11 +15,8 @@ export default function RootLayout({
   children: React.ReactNode,
   req: any
 }) {
-
-  console.log(req);  
-
   return (
-    <html lang="en">
+    <html className='white' lang="en">
       <body className={inter.className}>
           <div>
           <ReduxProvider>{children}</ReduxProvider>

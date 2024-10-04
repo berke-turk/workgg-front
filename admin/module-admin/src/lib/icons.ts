@@ -17,6 +17,9 @@ const Icons = {
     supportSecondary: 'support.svg',
     settingsPrimary: 'settings-black.svg',
     settingsSecondary: 'settings.svg',
+    /* Vectors */
+    rightVector: 'right-vector.svg',
+    rightBlackVector: 'right-vector-black.svg'
 } as const;
 
 export default Icons;

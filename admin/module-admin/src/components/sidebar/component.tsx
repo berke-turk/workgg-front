@@ -7,7 +7,11 @@ import Icon from '@/components/icons/icon';
 import Menu from '@/components/sidebar/items/menu';
 import Item, { ItemI, SubItemI } from '@/components/sidebar/items/menuItem';
 
-export default function Sidebar() {
+interface SidebarI {
+    activePage: string
+}
+
+export default function Sidebar(sidebar: SidebarI) {
     let menuItems: ItemI[] = [
         {
             icon: {
@@ -16,7 +20,7 @@ export default function Sidebar() {
             },
             pageLink: Pages.dashboard,
             content: 'Dashboard',
-            isSelected: true
+            isSelected: sidebar.activePage == Pages.dashboard ? true : false
         },
         {
             icon: {
@@ -25,7 +29,7 @@ export default function Sidebar() {
             },
             pageLink: Pages.users,
             content: 'Kullanıcılar',
-            isSelected: false
+            isSelected: sidebar.activePage == Pages.users ? true : false
         },
         {
             icon: {
@@ -34,7 +38,7 @@ export default function Sidebar() {
             },
             pageLink: Pages.projects,
             content: 'Projeler',
-            isSelected: false
+            isSelected: sidebar.activePage == Pages.projects ? true : false
         },
         {
             icon: {
@@ -43,7 +47,7 @@ export default function Sidebar() {
             },
             pageLink: Pages.blog,
             content: 'Blog',
-            isSelected: false
+            isSelected: sidebar.activePage == Pages.blog ? true : false
         },
         {
             icon: {
@@ -52,7 +56,7 @@ export default function Sidebar() {
             },
             pageLink: Pages.papers,
             content: 'Dergiler/Gazeteler',
-            isSelected: false
+            isSelected: sidebar.activePage == Pages.papers ? true : false
         },
         {
             icon: {
@@ -61,7 +65,7 @@ export default function Sidebar() {
             },
             pageLink: Pages.theme,
             content: 'Tema İçerikleri',
-            isSelected: false
+            isSelected: sidebar.activePage == Pages.theme ? true : false
         },
         {
             icon: {
@@ -70,7 +74,7 @@ export default function Sidebar() {
             },
             pageLink: Pages.about,
             content: 'Hakkımızda/İletişim',
-            isSelected: false
+            isSelected: sidebar.activePage == Pages.about ? true : false
         },
         {
             icon: {
@@ -79,7 +83,7 @@ export default function Sidebar() {
             },
             pageLink: Pages.support,
             content: 'Destek',
-            isSelected: false
+            isSelected: sidebar.activePage == Pages.support ? true : false
         },
         {
             icon: {
@@ -88,11 +92,11 @@ export default function Sidebar() {
             },
             pageLink: Pages.settings,
             content: 'Ayarlar',
-            isSelected: false
+            isSelected: sidebar.activePage == Pages.settings ? true : false
         }
     ]
     return (
-        <div className="w-72 h-screen hidden md:flex flex-col items-center" style={{ backgroundColor: Colors.sideBar.primaryBackgroundColor }}>
+        <div style={{backgroundColor: Colors.sideBar.primaryBackgroundColor}} className="w-72 min-h-screen hidden md:flex flex-col items-center fixed" >
             {/* Sidebar */}
             <div className="w-full h-20 flex justify-center items-center">
                 {/* Logo */}

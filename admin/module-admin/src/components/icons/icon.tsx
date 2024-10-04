@@ -2,16 +2,20 @@ import Image from 'next/image'
 
 interface IconI {
   id: string,
+  className?: string,
+  style?: React.CSSProperties,
   mime?: string,
   alt?: string,
   width?: number,
   height?: number,
 }
 
-export default function Icon(iconI: IconI) {
-  return <Image src={`/icons/${iconI.id}${iconI.mime ? ('.' + iconI.mime) : ''}`}
-    alt={iconI.alt ? iconI.alt : ''}
-    width={iconI.width ? iconI.width : 64}
-    height={iconI.height ? iconI.height : 64}
+export default function Icon(icon: IconI) {
+  return <Image src={`/icons/${icon.id}${icon.mime ? ('.' + icon.mime) : ''}`}
+    alt={icon.alt ? icon.alt : ''}
+    width={icon.width ? icon.width : 64}
+    height={icon.height ? icon.height : 64}
+    style={icon.style}
+    className={icon.className}
   />
 }
