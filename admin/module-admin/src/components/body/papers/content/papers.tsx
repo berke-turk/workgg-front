@@ -35,6 +35,12 @@ export default function Content(content: ContentNewsPapersI) {
 
     return (
         <div className="h-auto py-2 w-full flex flex-col justify-start items-start">
+            <a href="/papers/add" className="mb-8 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-1.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Dergi Ekle
+                <span className="ml-2 text-lg">
+                    +
+                </span>
+            </a>
             <Table data={{ schema: schema }}></Table>
         </div>
     )
