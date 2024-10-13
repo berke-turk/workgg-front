@@ -19,7 +19,10 @@ const Icons = {
     settingsSecondary: 'settings.svg',
     /* Vectors */
     rightVector: 'right-vector.svg',
-    rightBlackVector: 'right-vector-black.svg'
+    rightBlackVector: 'right-vector-black.svg',
+    /* Logos */
+    workgg: 'workgg.svg',
+    workggWhite: 'workgg-white.svg',
 } as const;
 
 export default Icons;

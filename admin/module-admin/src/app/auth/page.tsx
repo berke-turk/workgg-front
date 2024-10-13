@@ -1,20 +1,22 @@
-import Auth from '@/components/forms/Auth'
-import Link from 'next/link'
+import Link from 'next/link';
+
+import Size from "@/lib/styles/size";
+import Icons from '@/lib/icons';
+
+import Icon from '@/components/icons/icon';
+import Login from '@/components/forms/Login';
 
 async function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export default async function Page() {
-  await delay(2000); // 2 saniye
+  // await delay(2000); // 2 saniye
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-3xl font-bold mb-8">Counter Page</h1>
-      <Auth />
-      <Link href="/" className="mt-8 text-blue hover:underline">
-        Back to Home
-      </Link>
+    <main className="flex min-h-screen flex-col items-center justify-center dark:bg-[#161616]">
+      <Icon id={Icons.workggWhite} className='mb-10' width={Size.width(150)}></Icon>
+      <Login />
     </main>
   )
 }

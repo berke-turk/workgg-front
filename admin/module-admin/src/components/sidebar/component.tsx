@@ -1,3 +1,9 @@
+'use client'
+
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '@/lib/redux/store'
+import { increment, incrementByAmount, decrement } from '@/lib/redux/features/counterSlice'
+
 import Colors from "@/lib/styles/colors";
 import Size from "@/lib/styles/size";
 import Pages from "@/lib/pages";
