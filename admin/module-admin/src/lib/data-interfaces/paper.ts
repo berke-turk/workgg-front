@@ -1,5 +1,5 @@
 export default interface Paper {
-    id: string,
+    paper_id: string,
     title?: string,
     seo?: string,
     description?: string,
@@ -7,10 +7,11 @@ export default interface Paper {
     volume?: string,
     sub_volume?: string,
     read_count?: string,
-    image?: string,
+    img?: string,
     file_url?: string,
     status: 'active' | "passive", // active - passive
     created_at?: string,
+    formatted_created_date?: string,
     updated_at?: string
 }
 

@@ -11,19 +11,14 @@ import Icon from '@/components/icons/icon';
 import Tab from '@/components/tab/component';
 import TabItem, { ItemI } from '@/components/tab/items/tabItem';
 
-export interface TableDataI {
-    id: string,
-    title: string,
-    volume: string,
-    date: string,
-    read_count: string,
-    status: string
-}
+
+import PaperData from '@/lib/data-interfaces/paper';
+
 
 export interface TableSchemaI {
     link: string,
     heads: string[],
-    datas: TableDataI[],
+    datas: PaperData[],
     page_index: number,
     page_size: number
 }
@@ -52,7 +47,7 @@ export default function Table({ data }: { data: TableI }) {
                 </thead>
                 <tbody>
                     {data.schema.datas.map((value, index) => (
-                        <tr key={`${value.id}`} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <tr key={`${value.paper_id}`} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {value.title}
                             </th>
@@ -60,7 +55,7 @@ export default function Table({ data }: { data: TableI }) {
                                 {value.volume}
                             </td>
                             <td className="px-6 py-4">
-                                {value.date}
+                                {value.formatted_created_date}
                             </td>
                             <td className="px-6 py-4">
                                 {value.read_count}
@@ -69,7 +64,7 @@ export default function Table({ data }: { data: TableI }) {
                                 {value.status}
                             </td>
                             <td className="px-6 py-4">
-                                <a href={`${data.schema.link}/edit?id=${value.id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline hover:cursor-pointer">Düzenle</a>
+                                <a href={`${data.schema.link}/edit?id=${value.paper_id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline hover:cursor-pointer">Düzenle</a>
                             </td>
                         </tr>
                     ))}

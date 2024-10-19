@@ -15,10 +15,9 @@ export const metadata: Metadata = {
 }
 export default async function RootLayout({
   children, ...req
-}: {
+}: Readonly<{
   children: React.ReactNode,
-  req: any
-}) {
+}>) {
   const theme = await getCookie('theme');
   console.log(theme);
 

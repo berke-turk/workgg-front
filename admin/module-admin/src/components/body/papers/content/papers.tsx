@@ -4,31 +4,25 @@ import Pages from "@/lib/pages";
 import Icons from '@/lib/icons';
 
 import Icon from '@/components/icons/icon';
-import Table, { TableDataI, TableSchemaI } from '@/components/table/component';
+import Table, { TableSchemaI } from '@/components/table/component';
+
+// Fetch
+import { fetchPapers } from '@/lib/fetch/paper';
 
 interface ContentNewsPapersI {
     content?: string
 }
 
-export default function Content(content: ContentNewsPapersI) {
-    // API REQUEST
-
+export default async function Content(content: ContentNewsPapersI) {
+    // API Request
+    let papersList = await fetchPapers();
     //
 
     let title = "Dergi";
     let schema: TableSchemaI = {
         link: Pages.papers,
         heads: ["Başlık", "Sayı", "Tarih", "Okunma Sayısı", "Durum", ""],
-        datas: [
-            {
-                id: 'uuid-3',
-                title: "Cumhuriyet Dergisi",
-                volume: "1",
-                date: "04.10.2024",
-                read_count: "15",
-                status: "active",
-            }
-        ],
+        datas: papersList,
         page_index: 0,
         page_size: 20
     };

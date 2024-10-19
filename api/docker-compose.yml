@@ -1,0 +1,21 @@
+version: '3'
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "3435:3000"
+    depends_on:
+      - rabbitmq
+  user:
+    build: ./services/user
+    depends_on:
+      - rabbitmq
+  order:
+    build: ./services/order
+    depends_on:
+      - rabbitmq
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
