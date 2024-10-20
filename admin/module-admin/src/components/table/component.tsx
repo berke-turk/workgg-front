@@ -11,9 +11,7 @@ import Icon from '@/components/icons/icon';
 import Tab from '@/components/tab/component';
 import TabItem, { ItemI } from '@/components/tab/items/tabItem';
 
-
 import PaperData from '@/lib/data-interfaces/paper';
-
 
 export interface TableSchemaI {
     link: string,
@@ -30,7 +28,6 @@ export interface TableI {
 export default function Table({ data }: { data: TableI }) {
     let params = useSearchParams();
     console.log(params);
-    let page_index = 0;
 
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">

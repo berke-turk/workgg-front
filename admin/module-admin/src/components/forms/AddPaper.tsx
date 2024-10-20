@@ -1,5 +1,7 @@
 'use client';
 
+import { FormEvent } from 'react';
+
 import Colors from "@/lib/styles/colors";
 import Size from "@/lib/styles/size";
 import Pages from "@/lib/pages";
@@ -8,14 +10,10 @@ import Images from '@/lib/images';
 import PaperDataI from '@/lib/data-interfaces/paper';
 import Status from '@/lib/data-interfaces/status';
 
-import Icon from '@/components/icons/icon';
-import Table, { TableDataI, TableSchemaI } from '@/components/table/component';
-
-import { FormEvent } from 'react';
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@/lib/redux/store'
-import { increment, incrementByAmount, setActive } from '@/lib/redux/features/fetchLoadingSlice'
+import { setActive } from '@/lib/redux/features/fetchLoadingSlice'
 //
 
 export default function Form() {

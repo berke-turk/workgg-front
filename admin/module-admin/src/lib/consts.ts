@@ -1,6 +1,7 @@
-const Url = {
+const Consts = {
     base: 'http://localhost::3051' /*'https://admin.kogmenler.com'*/,
-    base_api: 'http://localhost::3051/api/v1' /* 'https://admin.kogmenler.com/api'*/,
+    base_api: 'https://api.kogmenler.com/v1',
+    client_secret: '',
 } as const;
 
-export default Url;
+export default Consts;

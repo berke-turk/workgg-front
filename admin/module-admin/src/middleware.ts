@@ -13,7 +13,7 @@ export function middleware(request: NextRequest) {
     console.log("sss")
     // Örnek: Belirli bir rotaya erişimi kontrol etme
     //if (pathname.startsWith('/admin')) {
-    const token = request.cookies.get('auth_token');
+    const token = request.cookies.get('access_token');
     if (!token) {
         if (pathname != '/auth')
             return NextResponse.redirect(new URL('/auth', request.url));

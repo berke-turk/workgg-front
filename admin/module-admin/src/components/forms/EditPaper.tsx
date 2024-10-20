@@ -1,5 +1,8 @@
 'use client';
 
+import { FormEvent } from 'react';
+import { setCookie } from "cookies-next";
+
 import Colors from "@/lib/styles/colors";
 import Size from "@/lib/styles/size";
 import Pages from "@/lib/pages";
@@ -8,14 +11,14 @@ import Images from '@/lib/images';
 import PaperDataI from '@/lib/data-interfaces/paper';
 import Status from '@/lib/data-interfaces/status';
 
-import Icon from '@/components/icons/icon';
-import Table, { TableDataI, TableSchemaI } from '@/components/table/component';
-
-import { FormEvent } from 'react';
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@/lib/redux/store'
-import { increment, incrementByAmount, setActive } from '@/lib/redux/features/fetchLoadingSlice'
+import { setActive } from '@/lib/redux/features/fetchLoadingSlice'
+//
+
+// Lib
+import {} from '@/lib/fetch/paper';
 //
 
 export interface EditPaperFormI {
@@ -33,7 +36,21 @@ export default function Form(content: EditPaperFormI) {
             dispatch(setActive(true)); // Loading State Start
 
             // PUT API
+
+            //
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleDelete = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();  // Sayfanın yeniden yüklenmesini engeller
+        try {
+            dispatch(setActive(true)); // Loading State Start
+
+            // DELETE API
             
+
             //
         } catch (error) {
             console.log(error);
@@ -96,7 +113,7 @@ export default function Form(content: EditPaperFormI) {
                     )}
                     {fetchLoadingState.isActive == false && (
                         <div className='ml-5'>
-                            <a type="button" className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Sil</a>
+                            <a type="button" onClick={(e) => handleDelete} className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Sil</a>
                         </div>
                     )}
                     {fetchLoadingState.isActive == true && (

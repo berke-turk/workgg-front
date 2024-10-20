@@ -3,14 +3,16 @@
 import { ThemeProvider, Button } from "@material-tailwind/react";
 
 import { FormEvent } from 'react';
+
 // Redux
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@/lib/redux/store'
-import { increment, incrementByAmount, setActive } from '@/lib/redux/features/fetchLoadingSlice'
+import { setActive } from '@/lib/redux/features/fetchLoadingSlice'
 //
 
 export default function Login() {
-  const fetchLoadingState = useSelector((state: RootState) => state.fetchLoading)
+  const fetchLoadingState = useSelector((state: RootState) => state.fetchLoading);
+  const authFormState = useSelector((state: RootState) => state.authform);
   const dispatch = useDispatch();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -19,7 +21,7 @@ export default function Login() {
       dispatch(setActive(true)); // Loading State Start
 
       // POST API
-
+      
       //
     } catch (error) {
       console.log(error);

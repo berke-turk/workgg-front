@@ -6,23 +6,30 @@ import Icons from '@/lib/icons';
 import Icon from '@/components/icons/icon';
 import Table, { TableSchemaI } from '@/components/table/component';
 
+// Interfaces
+import PaperData from '@/lib/data-interfaces/paper';
+
 // Fetch
-import { fetchPapers } from '@/lib/fetch/paper';
+import { fetchCreate, fetchUpdate, fetchDelete, fetchList, ApiPath } from '@/lib/api-model';
 
-interface ContentNewsPapersI {
-    content?: string
-}
 
-export default async function Content(content: ContentNewsPapersI) {
-    // API Request
-    let papersList = await fetchPapers();
+export default async function Content() {
+    // First API Request
+    let paperList: PaperData[] = [];
+    try {
+        paperList = await fetchList<PaperData>(ApiPath.papers.list(0, 20));
+    } catch (error) {
+        console.log("Error fetch papers");
+        console.log(error);
+        paperList = [];
+    }
     //
 
     let title = "Dergi";
     let schema: TableSchemaI = {
         link: Pages.papers,
         heads: ["Başlık", "Sayı", "Tarih", "Okunma Sayısı", "Durum", ""],
-        datas: papersList,
+        datas: [],
         page_index: 0,
         page_size: 20
     };

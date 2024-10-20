@@ -31,7 +31,6 @@ export default async function EditPaper(paper: PaperI) {
     )
 }
 
-
 export async function FetchData(id?: string | null): Promise<PaperDataI | undefined> {
     if (id == null)
         return undefined;
@@ -39,7 +38,7 @@ export async function FetchData(id?: string | null): Promise<PaperDataI | undefi
     // Fetch API
 
     //
-    let re: PaperDataI = { id: id, status: 'passive', title: "Test Başlığı", description: "Test açıklaması", read_count: "10", seo: "test-basligi", image: "", volume: "1", sub_volume: "2" };
+    let re: PaperDataI = { paper_id: id, status: 'passive', title: "Test Başlığı", description: "Test açıklaması", read_count: "10", seo: "test-basligi", img: "", volume: "1", sub_volume: "2" };
 
     return re;
 }
